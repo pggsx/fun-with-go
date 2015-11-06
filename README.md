@@ -1,5 +1,8 @@
-# intro-to-go
-Slides and code samples from Nov 4 2015 UUG Go Talk
+#Fun-With-Go
+Currently learning go by making small programs 
 
-#fun-with-go
-forked from ameske intro-to-go tutorial
+docs documentation forked from ameske/intro-to-go
+
+example sample example programs 
+
+code snippets snippets of code that I've written for various task 
