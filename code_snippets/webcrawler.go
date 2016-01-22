@@ -10,7 +10,6 @@ import (
 	"net"
 	"net/http"
 	"os"
-	"time"
 )
 
 var apikey string
@@ -25,48 +24,35 @@ func init() {
 }
 func main() {
 	fmt.Println("VT URl Scanner")
-	start := time.Now()
-	ch := make(chan string)
 	for _, url := range os.Args[1:] {
-		go fetch(url, ch) // starts a go-routine
-	}
-	for range os.Args[1:] {
-
-		fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
+		fetch(url) // fetches url and scans it
 	}
 }
 
-// check - an error checking function
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
-func fetch(url string, ch chan<- string) {
-	start := time.Now()
+func fetch(url string) {
+	fmt.Println("url %s", url)
 	fmt.Println("At Begining of Fetch:\n")
 	resp, err := http.Get(url)
 	if err != nil {
-		ch <- fmt.Sprint(err)
 		return
 	}
 	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
 	resp.Body.Close()
 	if err != nil {
-		ch <- fmt.Sprintf("while reading %s %v", url, err)
 		return
 	}
-	secs := time.Since(start).Seconds()
 
-	fmt.Println("%.2fs %7d %s", secs, nbytes, url)
+	fmt.Println("%d %s", nbytes, url)
 	fmt.Println("Analyzing URL(s):\n")
 	ip_addr, err := net.LookupIP(url)
+	fmt.Println("Finished Domain Lookup\n")
 	if err != nil {
 		fmt.Sprintf("ip lookup failed %s %v", url, err)
 	}
-	flag.StringVar(&ip, "ip", ip_addr[0].String(), "ip sum of a file to as VT about.")
-
+	for i := 0; i < len(ip_addr); i++ {
+		fmt.Println("ip_addr", ip_addr[i])
+		flag.StringVar(&ip, "ip", ip_addr[i].String(), "ip sum of a file to as VT about.")
+	}
 	fmt.Println("Sending to VirusTotal:\n")
 	flag.Parse()
 	if ip == "" {
@@ -82,4 +68,11 @@ func fetch(url string, ch chan<- string) {
 	j, err := json.MarshalIndent(r, "", "    ")
 	fmt.Printf("IP Report: ")
 	os.Stdout.Write(j)
+}
+
+// check - an error checking function
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
 }
