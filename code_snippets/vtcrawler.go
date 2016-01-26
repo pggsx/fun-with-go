@@ -12,36 +12,6 @@ import (
 	"os"
 )
 
-// KEA -Go uses camelCase instead of spacing_like_this
-
-/*
-KEA - A good design would be to populate a []string of URL's in your main function. Then just loop and call fetch. It would clean up your "if cliStr/cliFile" logic, and allow you to get rid of the if/else. You could simply append to the []string if the flag is given. Nice, clean and concise.
-
-Pseudocode:
-
-urls := make([]string, 0)
-
-concurrent := flag.Bool("j", false, "Concurrently fetch url reports")
-
-if *cliStr != "" {
-	// Do whatever validity checks you want
-	urls = append(urls, *cliStr)
-}
-
-if *cliFile != "" {
-	// Open file
-	// For line in file - urls = append(urls, *cliStr)
-}
-
-for _, url := range urls {
-	if *concurrent {
-		go fetch()
-	} else {
-		fetch()
-	}
-}
-*/
-
 var apikey string
 var apiurl string
 var domain string
