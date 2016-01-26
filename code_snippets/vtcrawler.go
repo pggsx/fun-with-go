@@ -118,7 +118,8 @@ func main() {
 				fmt.Println("urls", urls[counter])
 			}*/
 		} else if *silent {
-			fmt.Println("Silent Mode Running Ouput will be txt format")
+			fmt.Println("Silent Mode Running")
+			fmt.Println("Output will be TXT format")
 			verb = false
 		}
 	}
@@ -172,11 +173,11 @@ func fetch(url string, mode bool) {
 		}
 		//		currDir, err := os.Getwd()
 		if _, err := os.Stat(file); err == nil {
-			fmt.Println("File Exists Moving to Reports Directory")
-			//		os.Mkdir("report", 0664)
-			//		reportDir, err := filepath.Abs("report/")
-			//		filepath.Join(currDir, reportDir)
-			ioutil.WriteFile(url+"-report", j, 0664)
+			if mode {
+				fmt.Println("File Exists Moving to Reports Directory")
+			}
+			os.Mkdir("report", 0760)
+			ioutil.WriteFile("report/"+url+"-report", j, 0664)
 		} else {
 			ioutil.WriteFile("report.txt", j, 0664)
 		}
