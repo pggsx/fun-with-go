@@ -43,8 +43,8 @@ func main(){
 	fmt.Println("Welcome to ASTR121 Choose Your Own Adventure")
 	fmt.Println("Please Choose one of the following Options:")
 	fmt.Println("1 Start Adventure")
-	fmt.Println("3 Shows this help Menu")
-	fmt.Println("4 Exits Program")
+	fmt.Println("2 Shows this help Menu")
+	fmt.Println("3 Exits Program")
 	case 4:
 	return
 	default:
@@ -146,9 +146,10 @@ func genStoryLine(start bool){
 					}
 					fmt.Println("FTL Jump!")
 				}else {
-					fmt.Println("You have chosen an incorrect answer.Please try again..")
+					fmt.Println("You have chosen an incorrect answer")
+					fmt.Println("Please Try Again")
 					fmt.Println("FTLDrive Powering Down...")
-
+					os.Exit(-1)
 				}
 	
 		
@@ -183,13 +184,17 @@ func genStoryLine(start bool){
 						}
 						fmt.Println("FTL Jump!")
 					}else {
-						fmt.Println("FTLDrive Powering Down...")
+
+					fmt.Println("You have chosen an incorrect answer")
+					fmt.Println("Please Try Again")
+					fmt.Println("FTLDrive Powering Down...")
+					os.Exit(-1)
 					}
 		} else{
 			fmt.Println("You now begin your settlement on Planet 51 Pegasi B")
 			fmt.Println("While your initial strugles may seem to be daunting at first, you realize that your terraforming operations")
 			fmt.Println("will help the future of mankind")
-			os.Exit(1)
+			os.Exit(-1)
 		}
 	
 
@@ -221,7 +226,8 @@ func genStoryLine(start bool){
 					}
 					fmt.Println("FTL Jump!")
 				}else {
-					fmt.Println("You have chosen an incorrect answer.Please try again..")
+					fmt.Println("You have chosen an incorrect answer")
+					fmt.Println("Please Try Again")
 					fmt.Println("FTLDrive Powering Down...")
 					fmt.Println("Exiting now....")
 					os.Exit(-1)
@@ -267,7 +273,8 @@ os.Exit(1)
 					fmt.Println("FTL Jump!")
 				}
 				}else {
-					fmt.Println("You have chosen an incorrect answer.Please try again..")
+					fmt.Println("You have chosen an incorrect answer")
+					fmt.Println("Please try again..")
 					fmt.Println("FTLDrive Powering Down...")
 					fmt.Println("Exiting now....")
 					os.Exit(-1)
@@ -310,7 +317,8 @@ os.Exit(1)
 					fmt.Println("------")
 					fmt.Println("FTL Jump!")
 				}else {
-					fmt.Println("You have chosen an incorrect answer.Please try again..")
+					fmt.Println("You have chosen an incorrect answer")
+					fmt.Println("Please try again..")
 					fmt.Println("FTLDrive Powering Down...")
 					fmt.Println("Exiting now....")
 					os.Exit(-1)
@@ -354,7 +362,8 @@ os.Exit(1)
 					fmt.Println("------")
 					fmt.Println("FTL Jump!")
 				}else {
-					fmt.Println("You have chosen an incorrect answer Please try again..")
+					fmt.Println("You have chosen an incorrect answer.")
+					fmt.Println("Please try again..")
 					fmt.Println("FTLDrive Powering Down...")
 					fmt.Println("Exiting now....")
 					os.Exit(-1)
