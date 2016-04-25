@@ -1,5 +1,0 @@
-main function
-getMain Menu //possibly prompts user for input and returns value 
-displayHUD //initialized character data and HUD
-storyline is contained in a doubly linked list that contains various scenarios
-link node is int,string (int is identifier, and string is various scenario)
