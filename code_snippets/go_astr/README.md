@@ -21,7 +21,7 @@
 					https://storage.googleapis.com/golang/go1.6.2.windows-amd64.msi and then follow 
 					installer steps
 #Steps to run program
-	1)clone the repository by running the following "git clone https://github.com/pggsx/fun-with-go.git" and go to the code_snippets/go_astr
+	1)clone the repository by running the following "git clone https://github.com/pggsx/fun-with-go.git" on your terminal and go to the code_snippets/go_astr
 	directory
-	2)	To Run the program just run go run astro.go 
+	2)	To Run the program just run the following command "go run astro.go" on your terminal 
 	3) Enjoy :)
