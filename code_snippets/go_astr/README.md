@@ -1,6 +1,8 @@
 #Astro Go 
 -Basic StoryTelling game made with Golang that describes exo-planet exploration
 #Install Dependencies:
+Git - Version Control System 
+	To install git for the various platforms view the git official download page and follow their instructions regarding installing Git for your particular OS (https://git-scm.com/downloads)
 	- Golang Binares 
 			- Mac/OSX
 				- Download the package file located here:
